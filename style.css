@@ -95,3 +95,10 @@ h1 {
   top: -15px;
   right: -290px;
 }
+
+.github {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 11px;
+  padding: 30px 0px 0px 0px;
+}
