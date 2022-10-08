@@ -3,7 +3,7 @@
   background: #fefdfe;
   border: 1px solid #000000;
   text-align: left;
-  margin: 20px;
+  margin: 10px;
   width: 450px;
   height: 580px;
 }
@@ -23,7 +23,7 @@ h1 {
   text-shadow: 1px 2px 2px black;
 }
 
-.col-7 {
+.mainDetails {
   font-size: 20px;
   text-align: left;
   position: relative;
@@ -36,18 +36,19 @@ h1 {
   font-weight: bolder;
 }
 
-.col-5 {
-  font-size: 20px;
+.details {
+  font-size: px;
   text-align: right;
   position: relative;
-  top: 25px;
-  right: 40px;
+  padding: 0px;
+  top: 10px;
+  right: 50px;
 }
 
 .input-group {
   margin: 0 0 0 40px;
   position: relative;
-  top: 20px;
+  top: 10px;
 }
 
 .button {
@@ -65,7 +66,6 @@ h1 {
   text-align: center;
   font-size: 17px;
   position: relative;
-  top: 10px;
   left: 5px;
 }
 
@@ -92,7 +92,7 @@ h1 {
   background-color: #fefdfe;
   border: none;
   position: relative;
-  top: -15px;
+  top: -25px;
   right: -290px;
 }
 
@@ -100,11 +100,25 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 11px;
-  padding: 30px 0px 0px 0px;
+  padding: 28px 0px 0px 0px;
 }
 
-.col-7 .active {
+.col-6 .active {
   color: black;
   cursor: default;
   text-decoration: none;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.ul {
+  padding: 0;
+  margin: 0;
+}
+
+.ul:first-letter {
+  text-transform: capitalize;
 }
