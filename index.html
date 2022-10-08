@@ -30,16 +30,16 @@
         </div>
         <div class="row">
           <div class="col-7">
-            <span class="degrees" id="degrees">-81</span>
-            <span id="change-cel"> <a href="#">ºC</a></span> |
-            <span id="change-far"> <a href="#">ºF</a> </span>
+            <span class="degrees" id="degrees"></span>
+            <a href="#" id="change-cel" class="active">ºC</a> |
+            <a href="#" id="change-far">ºF</a>
             <br />
-            <span id="cidade">Mars</span>
+            <span id="cidade"></span>
           </div>
           <div class="col-5">
-            Humidity: <span id="humidity">0</span>%
+            Humidity: <span id="humidity"></span>%
             <br />
-            Wind: <span id="wind">16</span>km/h
+            Wind: <span id="wind"></span>km/h
           </div>
         </div>
         <form class="input-group" id="search-form">
@@ -48,6 +48,7 @@
             id="city-input"
             class="form-control"
             placeholder="Search city"
+            autocomplete="off"
           />
           <input type="submit" value="🔍" id="button-search" class="button" />
         </form>

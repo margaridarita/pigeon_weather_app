@@ -1,7 +1,6 @@
-// To do: have geolocation automatically at the beggining
+// Give current date and time
 
 let day = document.querySelector("#dia");
-let hour = document.querySelector("#horas");
 
 let now = new Date();
 
@@ -31,6 +30,8 @@ let currentMonthExt = months[currentMonth];
 
 day.innerHTML = `${currentWeekDayExt} ${currentDate} ${currentMonthExt}`;
 
+let hour = document.querySelector("#horas"); // display
+
 let currentHour = now.getHours();
 let currentMin = now.getMinutes();
 
@@ -43,48 +44,47 @@ if (currentMin < 10) {
 
 hour.innerHTML = `${currentHour}h${currentMin}`;
 
-// Display searched city - substituted by new code that uses API
-
-// let searchEng = document.querySelector("#search-form");
-// searchEng.addEventListener("submit", display);
-
-// function display(event) {
-// event.preventDefault();
-// let userCity = document.querySelector("#city-input");
-// let city = document.querySelector("#cidade");
-// city.innerHTML = userCity.value;
-// }
-
 // Allow to change temperature measure
+
+function changeMeasureFar(event) {
+  event.preventDefault();
+  celcius.classList.remove("active");
+  farenheit.classList.add("active");
+  let farTemp = (celTemp * 9) / 5 + 32;
+  let currentDegrees = document.querySelector("#degrees");
+  currentDegrees.innerHTML = Math.round(farTemp);
+}
 
 let farenheit = document.querySelector("#change-far");
 farenheit.addEventListener("click", changeMeasureFar);
 
-function changeMeasureFar() {
+function changeMeasureCel(event) {
+  event.preventDefault();
+  farenheit.classList.remove("active");
+  celcius.classList.add("active");
   let currentDegrees = document.querySelector("#degrees");
-  currentDegrees.innerHTML = "80º";
+  currentDegrees.innerHTML = celTemp;
 }
 
 let celcius = document.querySelector("#change-cel");
 celcius.addEventListener("click", changeMeasureCel);
 
-function changeMeasureCel() {
-  let currentDegrees = document.querySelector("#degrees");
-  currentDegrees.innerHTML = "27º";
-}
+let celTemp = null;
 
 // Get weather data from API
 
 function displayWeatherData(response) {
-  console.log(response.data);
   document.querySelector("#cidade").innerHTML = response.data.name;
   document.querySelector("#degrees").innerHTML = Math.round(
     response.data.main.temp
   );
+  celTemp = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  farenheit.classList.remove("active");
+  celcius.classList.add("active");
 }
 
 function citySearch(city) {
@@ -119,4 +119,6 @@ function userLocation(event) {
 let geoButton = document.querySelector("#geo");
 geoButton.addEventListener("click", userLocation);
 
-//
+// Set initial value
+
+citySearch("Lisbon");
