@@ -100,7 +100,7 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 11px;
-  padding: 28px 0px 0px 0px;
+  padding: 22px 0px 0px 0px;
 }
 
 .col-6 .active {
@@ -114,11 +114,10 @@ h1 {
   height: 50px;
 }
 
-.ul {
-  padding: 0;
-  margin: 0;
+.capitalize {
+  display: inline-block;
 }
 
-.ul:first-letter {
+.capitalize:first-letter {
   text-transform: capitalize;
 }
