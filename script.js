@@ -142,28 +142,44 @@ citySearch("Lisbon");
 
 // Build forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecastdays = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastdays.forEach(function (forecastdays, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="forecast-date">${day}</div>
+        <div class="forecast-date">${formatDay(forecastdays.dt)}</div>
         <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastdays.weather[0].icon
+          }@2x.png"
           alt=""
           width="44"
         />
         <div class="forecast-temperatures">
-          <span class="forecast-temperature-max"> 18° </span>
-          <span class="forecast-temperature-min"> 12° </span>
+          <span class="forecast-temperature-max"> ${Math.round(
+            forecastdays.temp.max
+          )}° </span>
+          <span class="forecast-temperature-min"> ${Math.round(
+            forecastdays.temp.min
+          )}° </span>
         </div>
       </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
