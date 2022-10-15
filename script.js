@@ -73,6 +73,12 @@ let celTemp = null;
 
 // Get weather data from API
 
+function getForecast(coordinates) {
+  let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeatherData(response) {
   console.log(response.data);
   document.querySelector("#cidade").innerHTML = response.data.name;
@@ -94,6 +100,8 @@ function displayWeatherData(response) {
   );
   farenheit.classList.remove("active");
   celcius.classList.add("active");
+
+  getForecast(response.data.coord);
 }
 
 function citySearch(city) {
@@ -132,9 +140,9 @@ geoButton.addEventListener("click", userLocation);
 
 citySearch("Lisbon");
 
-// Build Forecast
+// Build forecast
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
 
