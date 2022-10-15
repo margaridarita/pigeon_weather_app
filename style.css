@@ -100,7 +100,7 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 11px;
-  padding: 22px 0px 0px 0px;
+  padding: 26px 0px 0px 0px;
 }
 
 .col-6 .active {
@@ -120,4 +120,29 @@ h1 {
 
 .capitalize:first-letter {
   text-transform: capitalize;
+}
+
+.forecast {
+  text-align: center;
+  width: 500px;
+  position: relative;
+  left: 18px;
+}
+
+.forecast-date {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.forecast-temperature-max {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.forecast-temperature-min {
+  font-size: 13px;
+}
+
+.col-2 {
+  padding: 0px 20px;
 }
