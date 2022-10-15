@@ -44,33 +44,6 @@ if (currentMin < 10) {
 
 hour.innerHTML = `${currentHour}h${currentMin}`;
 
-// Allow to change temperature measure
-
-function changeMeasureFar(event) {
-  event.preventDefault();
-  celcius.classList.remove("active");
-  farenheit.classList.add("active");
-  let farTemp = (celTemp * 9) / 5 + 32;
-  let currentDegrees = document.querySelector("#degrees");
-  currentDegrees.innerHTML = Math.round(farTemp);
-}
-
-let farenheit = document.querySelector("#change-far");
-farenheit.addEventListener("click", changeMeasureFar);
-
-function changeMeasureCel(event) {
-  event.preventDefault();
-  farenheit.classList.remove("active");
-  celcius.classList.add("active");
-  let currentDegrees = document.querySelector("#degrees");
-  currentDegrees.innerHTML = celTemp;
-}
-
-let celcius = document.querySelector("#change-cel");
-celcius.addEventListener("click", changeMeasureCel);
-
-let celTemp = null;
-
 // Get weather data from API
 
 function getForecast(coordinates) {
@@ -80,7 +53,6 @@ function getForecast(coordinates) {
 }
 
 function displayWeatherData(response) {
-  console.log(response.data);
   document.querySelector("#cidade").innerHTML = response.data.name;
   document.querySelector("#degrees").innerHTML = Math.round(
     response.data.main.temp
@@ -98,8 +70,6 @@ function displayWeatherData(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  farenheit.classList.remove("active");
-  celcius.classList.add("active");
 
   getForecast(response.data.coord);
 }
