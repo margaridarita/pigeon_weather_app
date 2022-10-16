@@ -1,6 +1,6 @@
-// Give current date and time
+// Display current date and time
 
-let day = document.querySelector("#dia");
+let day = document.querySelector("#dayDisplay");
 
 let now = new Date();
 
@@ -30,7 +30,7 @@ let currentMonthExt = months[currentMonth];
 
 day.innerHTML = `${currentWeekDayExt} ${currentDate} ${currentMonthExt}`;
 
-let hour = document.querySelector("#horas"); // display
+let hour = document.querySelector("#hourDisplay");
 
 let currentHour = now.getHours();
 let currentMin = now.getMinutes();
@@ -44,7 +44,7 @@ if (currentMin < 10) {
 
 hour.innerHTML = `${currentHour}h${currentMin}`;
 
-// Get weather data from API
+// Get and display weather data from API
 
 function getForecast(coordinates) {
   let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
@@ -53,11 +53,9 @@ function getForecast(coordinates) {
 }
 
 function displayWeatherData(response) {
-  document.querySelector("#cidade").innerHTML = response.data.name;
-  document.querySelector("#degrees").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#city").innerHTML = response.data.name;
   celTemp = Math.round(response.data.main.temp);
+  document.querySelector("#degrees").innerHTML = celTemp;
   document
     .querySelector("#icon")
     .setAttribute(
@@ -70,7 +68,6 @@ function displayWeatherData(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-
   getForecast(response.data.coord);
 }
 
@@ -121,9 +118,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecastdays = response.data.daily;
-
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
   forecastdays.forEach(function (forecastdays, index) {
     if (index < 5) {

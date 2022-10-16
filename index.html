@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework_W5</title>
+    <title>Weather_App</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,28 +16,27 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
     <div class="container">
       <div class="fullpage">
         <div class="board">
           <h1>
-            <span id="dia"> Sun 20 Aug </span>
-            <br />
-            <span id="horas"> 10h33 </span>
+            <div id="dayDisplay"></div>
+            <div id="hourDisplay"></div>
           </h1>
         </div>
         <div class="row">
-          <div class="col-6 mainDetails">
+          <div class="col-4 mainDetails" m-0">
             <div class="degrees"><span id="degrees"></span>ºC</div>
-            <div id="cidade"></div>
+            <div id="city"></div>
           </div>
-          <div class="col-6 details">
+          <div class="col-8 details">
             <ul style="list-style-type: none" m-0>
               <li>
                 <img src="" alt="clear" class="icon" id="icon" />
-                <p id="description" class="capitalize"></p>
+                <p class="capitalize" id="description"></p>
               </li>
               <li>Humidity: <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span>km/h</li>
@@ -52,7 +51,7 @@
             placeholder="Search city"
             autocomplete="off"
           />
-          <input type="submit" value="🔍" id="button-search" class="button" />
+          <input type="submit" value="🔍" class="button" id="button-search"/>
         </form>
         <button class="location" id="geo">📍</button>
         <div class="forecast" id="forecast">
@@ -81,6 +80,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="src/script.js"></script>
   </body>
 </html>
