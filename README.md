@@ -1,5 +1,5 @@
 ## Pigeon Weather App
-This was my first ever coding project, done for the SheCodes Plus Web Development Workshop. It uses a weather API so that you can search the weather and week's forecast for any city.
+This was my first ever coding project, done for the SheCodes Plus Web Development Workshop. It uses a weather API so that you can search the weather and week's forecast for any city. Feel free to check the result on the Netfly website.
 
 Looking back there is a lot that I could improve on the code, but I'm proud to leave it saved as it is to reflect my evolution.
 
